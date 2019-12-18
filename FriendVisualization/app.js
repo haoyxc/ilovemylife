@@ -17,7 +17,7 @@ let friends = req.session.friends
 
 
 
-
+//Display your friends
 app.get('/friendvisualization', async function(req, res) {
     let json = {}
     let userID = req.session.userID 
