@@ -15,71 +15,12 @@ let layer1 = new Map()
 let firstfriends = []
 let friends = req.session.friends
 
-/*
-function getFriendData(){
-    let friends = ["jleeupenn", "mtuupenn"]
-    
-    friends.get(userID, function(err, data){
-        if(err){
-            console.log("Error", err);
-        } else{
-            for(var i = 0; i < data.length; i++){
-                firstfriends.push(JSON.parse(data[i].value));
-            }
-        }
-    })
-}*/
 
-/*
-const getFriendVis = function(req, res){
-    let userID = req.session.userID
-    let ans = {}
-    friends.scanKeys(function(err, data){
-        if(err){
-            console.log("Error", err);
-        }else {
-            for(let i = 0; i < data.length; i++){
-                if(data[i].key == userID){
-                    console.log("pushing first friends" + data[i].value);
-                    firstfriends.push(data[i].value)
-                } 
-    
-            }
-    
-        }
-    })
-
-    for (var i = 0; i < firstfriends.length; i++) {
-        let f = firstfriends[i]
-        if(!layer1.has(f)){
-            friends.get(f, function(err2, data2){
-                if(err2){
-                    console.log("idk error", err2);
-                } else {
-                    let secondfriends = "";
-                    for (var j = 0; j < data2.length; j++){
-                        if(data2[j].affiliation == )
-                        secondfriends += data2[j].value
-                        secondfriends += ","
-                    }
-                    secondfriends = secondfriends.slice(0, -1); 
-                    layer1.set(f, secondfriends);
-                     
-                }
-            }) 
-        } 
-
-    }
-
-    return res.send({ans: ans})
-
-}
-*/
 
 
 app.get('/friendvisualization', async function(req, res) {
     let json = {}
-    let userID = "chaoupenn" 
+    let userID = req.session.userID 
     json["id"] = userID
     json["name"] = userID
 
@@ -93,102 +34,12 @@ app.get('/friendvisualization', async function(req, res) {
 
     json["children"] = firstfriends
 
-    /*
-    var json = {"id": userID, "name": userID , "children": [{
-        "id": "bob",
-            "name": "Bob",
-            "data": {},
-            "children": [{
-            	"id": "dylan",
-            	"name": "Dylan",
-            	"data": {},
-            	"children": []
-            }, {
-            	"id": "marley",
-            	"name": "Marley",
-            	"data": {},
-            	"children": []
-            }]
-        }, {
-            "id": "charlie",
-            "name": "Charlie",
-            "data": {},
-            "children": [{
-                "id":"bob"
-            }]
-        }, {
-            "id": "david",
-            "name": "David",
-            "data": {},
-            "children": []
-        }, {
-            "id": "peter",
-            "name": "Peter",
-            "data": {},
-            "children": []
-        }, {
-            "id": "michael",
-            "name": "Michael",
-            "data": {},
-            "children": []
-        }, {
-            "id": "sarah",
-            "name": "Sarah",
-            "data": {},
-            "children": []
-        }], "data": []
-    };*/
     res.send(json);
 });
 
-/*
-	var json = {"id": "alice","name": "Alice","children": [{
-        "id": "bob",
-            "name": "Bob",
-            "data": {},
-            "children": [{
-            	"id": "dylan",
-            	"name": "Dylan",
-            	"data": {},
-            	"children": []
-            }, {
-            	"id": "marley",
-            	"name": "Marley",
-            	"data": {},
-            	"children": []
-            }]
-        }, {
-            "id": "charlie",
-            "name": "Charlie",
-            "data": {},
-            "children": [{
-                "id":"bob"
-            }]
-        }, {
-            "id": "david",
-            "name": "David",
-            "data": {},
-            "children": []
-        }, {
-            "id": "peter",
-            "name": "Peter",
-            "data": {},
-            "children": []
-        }, {
-            "id": "michael",
-            "name": "Michael",
-            "data": {},
-            "children": []
-        }, {
-            "id": "sarah",
-            "name": "Sarah",
-            "data": {},
-            "children": []
-        }],
-        "data": []
-    };
-    res.send(json);
-});*/
+
+
+
 
 app.get('/getFriends/:user', function(req, res) {
     console.log(req.params.user);
