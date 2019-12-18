@@ -40,6 +40,7 @@ public class IterReducer extends Reducer<Text,Text,Text,Text>{
             String labelWeight = parts[i];
             String label = labelWeight.substring(0, labelWeight.indexOf("-"));
             String weight = labelWeight.substring(labelWeight.indexOf("-")+1);
+	    //Normalize by summing total weights at this node
             Double normalizedWeight = (Double.parseDouble(weight))/normalize; 
 
             out.append(label);
