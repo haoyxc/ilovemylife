@@ -104,12 +104,12 @@ public class RecommendationDriver{
 	  	job.waitForCompletion(true);
 	  
 	  
-	  return diffsort(diffDir,output); //run another job to sort for max difference
+	  return diffsort(diffDir,output); //Sort to get max difference 
   	}
   
   
     public static double diffsort(String input,String output) throws Exception{
-	  	deleteDirectory(output);//clear output dir. before proceeding
+	  	deleteDirectory(output);//Clear output dir.
 	  	Job job = new Job();
 	  	job.setJarByClass(FriendRecommendationDriver.class);
 	  	job.setNumReduceTasks(1);
@@ -136,7 +136,7 @@ public class RecommendationDriver{
 	  int i = 0;
 	  init(input, interDir1, reducers);
 	  double diff = Double.MAX_VALUE;
-	  while (diff>threshold) { //run until convergence, meets threshold
+	  while (diff>threshold) { //Run until convergence, meet threshold
 		  iter(interDir1,interDir2,reducers);//run iter
 		  if (i%4==0) //run diff only one in four iterations
 			  diff = diff(interDir1,interDir2,diffDir,interDir1);//gets max diff 
