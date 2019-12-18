@@ -3,6 +3,7 @@ import { FaChevronDown, FaSearch}  from 'react-icons/fa';
 import { IoIosMenu } from 'react-icons/io';
 import Messages from "./Messages"
 
+//The sidebar --> shows what your current chats are
 export default class SideBar extends Component{
 		
 	constructor(props) {
@@ -15,9 +16,9 @@ export default class SideBar extends Component{
 	handleSubmit = (e) => {
 		e.preventDefault()
 		const { receiver } = this.state
-		console.log("The receiver is", receiver);
 		const { sendPrivateMessage } = this.props;
 
+		//Send a private message
 		sendPrivateMessage(receiver);
 		this.setState({receiver:""});
 	}
@@ -57,17 +58,19 @@ export default class SideBar extends Component{
 							if(chat.name){
 								const lastMessage = chat.messages[chat.messages.length - 1];
 								const chatSideName = chat.name;
-								//chat.users.find((name)=>{
-								//	return chat.name
-								//}) || "Group" 
+								//Name the chat a combination of the two users
 								const classNames = (activeChat && activeChat.id === chat.id) ? 'active' : ''
 								
 								return(
+								//Set the name of the chat
+								//The user "photo" is the first initial of the group name
+								//Display the last message sent
 								<div 
 									key={chat.id} 
 									className={`user ${classNames}`}
 									onClick={ ()=>{ setActiveChat(chat) } }
 									>
+								
 									<div className="user-photo">{chatSideName[0].toUpperCase()}</div>
 									<div className="user-info">
 										<div className="name">{chatSideName}</div>

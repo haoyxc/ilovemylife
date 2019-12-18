@@ -11,12 +11,7 @@ const cors = require("cors");
 const userdb = require("./models/user");
 var proxy = require('http-proxy-middleware');
 
-
-//app.use(logger("dev"));
-// app.use(bodyParser.json());
 app.use(bodyParser());
-// app.use(express.logger("default"));
-// app.use(cors());
 app.use(
   cors({
     origin: ["http://localhost:3000"],
@@ -30,21 +25,11 @@ app.use(
   proxy({ target: 'http://10.103.76.104:3000', changeOrigin: true })
 );
 
-// app.use((req, res, next) => {
-//   res.set({
-//     "Access-Control-Allow-Origin": "*",
-//     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-//     "Access-Control-Allow-Headers": "Content-Type"
-//   });
-//   next();
-// });
-
 app.use(
   session({
     secret: "keyboard cat",
     resave: true,
     saveUninitialized: false
-    // cookie: { secure: false }
   })
 );
 
@@ -59,5 +44,6 @@ app.set('port', port);
 
 server.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
+//Connect to the socket
 const handler = require('./socket');
 io.on('connection', handler);

@@ -8,6 +8,7 @@ export default class Messages extends Component {
           this.scrollDown = this.scrollDown.bind(this)
     }
   
+	//Automatically have the scroll bar be at the bottom
     scrollDown(){
         const { container } = this.refs
         container.scrollTop = container.scrollHeight
@@ -30,6 +31,7 @@ export default class Messages extends Component {
 				<div className="thread">
                     
 					{
+						//Makes sure the message sent as the time, message, and the name of the sender
 						messages.map((mes)=>{
 							return (
 								<div

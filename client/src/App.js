@@ -5,7 +5,6 @@ import Home from "./views/Home";
 import ProfilePage from "./views/ProfilePage";
 import Feed from "./views/Feed";
 import Chat from "./views/ChatPage";
-import FriendVis from "./views/FriendVis";
 
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
         <Route path="/profile/:userID" exact component={ProfilePage} />
         <Route path="/feed" exact component={Feed} />
         <Route path="/chat" exact component={Chat} />
-        <Route path="/friendVis" exact component={FriendVis} />
       </Switch>
     </BrowserRouter>
   );

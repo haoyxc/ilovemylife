@@ -4,6 +4,7 @@ const SHA3 = require("crypto-js/sha3");
 const session = require("express-session");
 chat.init(function(err, data) {});
 
+//Get the chat data in an array
 const get_chat = function(req, res) {
   let userID = req.session.userID;
   console.log(userID);

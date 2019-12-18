@@ -13,6 +13,7 @@ import UsersSameAff from "../components/UsersSameAff";
 import FriendRequests from "../components/FriendRequests";
 import FriendList from "../components/FriendList";
 import ChatButton from "../components/ChatButton";
+import VisualizerButton from "../components/VisualizerButton";
 axios.defaults.withCredentials = true;
 
 export default class Feed extends Component {
@@ -103,6 +104,7 @@ export default class Feed extends Component {
             <FriendRecs />
           </div>
           <div>
+            <VisualizerButton/>
             <FriendList />
             <ActiveUsers />
           </div>

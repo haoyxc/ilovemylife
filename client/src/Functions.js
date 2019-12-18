@@ -1,5 +1,6 @@
 const uuidv4 = require('uuid/v4')
 
+//Create a new user
 const createUser = ({name = "", socketId = null} = {})=>(
 	{
 		id:uuidv4(),
@@ -9,6 +10,7 @@ const createUser = ({name = "", socketId = null} = {})=>(
 	}
 )
 
+//Create a message using the current time
 const createMessage = ({message = "", sender = ""} = { })=>(
 		{
 			id:uuidv4(),
@@ -19,6 +21,7 @@ const createMessage = ({message = "", sender = ""} = { })=>(
 
 	)
 
+//Allows you to load a previous message from the database
 const loadMessage = ({message = "", sender = "", time = ""} = { })=>(
 	{
 		id:uuidv4(),
@@ -29,6 +32,7 @@ const loadMessage = ({message = "", sender = "", time = ""} = { })=>(
 
 )
 
+//Create a new chat --> Default is the Community Group Chat
 const createChat = ({messages = [], name = "Group", users = []} = {})=>(
 	{
 		id:uuidv4(),
@@ -39,6 +43,7 @@ const createChat = ({messages = [], name = "Group", users = []} = {})=>(
 	}
 )
 
+//Get the current time
 const getTime = (date)=>{
 	return `${date.getHours()}:${("0"+date.getMinutes()).slice(-2)}`
 }
