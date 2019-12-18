@@ -35,6 +35,7 @@
 - Post privacy - by default only visible to friends but can be public to everyone
 
 ### Julie:
+-Script to read in necessary data from DynamoDB tables (friends, interests, affiliations)
 -Hadoop Adsorption Algorithm that will generate friend recommendations for each node in the form of a text file
 
 ### Maria:
