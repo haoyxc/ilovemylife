@@ -14,12 +14,18 @@
   - Input from user to create a profile
 - Home Page
   - Can post, see active users, see friends list, see friend recommendations, see friend requests, remove existing friends, search for users
+  - Posts are displayed 5 at a time and user can scroll
   - friends and posts dynamically reload
 - Profile page
   - post on other people's timeline, view posts to each person, check friend status
 - Post features
   - Can be public/friend only, can like/view likes (by clicking on the likes button), add comments (dynamically reloads)
-- Backend routes (interact with frontend functionality)
+- Backend routes (interact with frontend functionality) that read and write to database. Models for:  
+  - friends
+  - users
+  - posts
+  - postLikes
+  - postComments
 
 ###### Bonus:
 
@@ -29,10 +35,6 @@
 - Post privacy - by default only visible to friends but can be public to everyone
 
 ### Julie:
--Script to retrieve necessary data from datatables (friends, interests, affiliations)
-  -Format accordingly and write to text file that will be read by MR
--Hadoop Adsorption Algorithmn that will generate friend recommendations for each node
--Static friendship visualizer (see your friends)
 
 ### Maria:
 - Chat Server
@@ -71,7 +73,6 @@
 - Login.js
 - LogoutButton.js
 - Post.js
-- PostDisplay.js
 - Search.js
 - SearchResults.js
 - SearchResultUser.js
@@ -91,15 +92,10 @@
 - postComments.js
 - postLikes.js
 - user.js
-- userPics.js (doesn't work, can ignore this)
 - routes.js
 - getRecs.js
 - index.js
 - socket.js
--InitMapper.java
--InitReducer.java
--IterMapper.java
--IterRedcuer.java
 
 ### Declaration
 
