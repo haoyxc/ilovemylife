@@ -100,6 +100,19 @@
 - getRecs.js
 - index.js
 - socket.js
+- InitMapper.java
+- InitReducer.java
+- IterMapper.java
+- IterReducer.java
+- DiffMapper.java
+- DiffReducer.java
+- SortMapper.java
+- SortReducer.java
+- FinishMapper.java
+- FinishReducer.java
+- RecommendationDriver.java
+- getMRData.js
+
 
 ### Declaration
 
