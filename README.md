@@ -29,6 +29,10 @@
 - Post privacy - by default only visible to friends but can be public to everyone
 
 ### Julie:
+-Script to retrieve necessary data from datatables (friends, interests, affiliations)
+  -Format accordingly and write to text file that will be read by MR
+-Hadoop Adsorption Algorithmn that will generate friend recommendations for each node
+-Static friendship visualizer (see your friends)
 
 ### Maria:
 - Chat Server
@@ -92,6 +96,10 @@
 - getRecs.js
 - index.js
 - socket.js
+-InitMapper.java
+-InitReducer.java
+-IterMapper.java
+-IterRedcuer.java
 
 ### Declaration
 
