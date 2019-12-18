@@ -6,9 +6,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-/*
- * Emits keys-value pairs with (1, difference)
- */
+//Emit as key: 1 value: difference
 public class SortMapper extends Mapper<LongWritable, Text, IntWritable, DoubleWritable>
 {
 	public void map(LongWritable key, Text value,Context context)  throws IOException,InterruptedException
