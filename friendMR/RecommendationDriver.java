@@ -152,6 +152,43 @@ public class RecommendationDriver{
   }
   
   
+  // Returns the first double from the first part-r-00000 file (output file)
+  static double readDiffResult(String path) throws Exception 
+  {
+    double diffnum = 0.0;
+    Path diffpath = new Path(path);
+    Configuration conf = new Configuration();
+    FileSystem fs = FileSystem.get(URI.create(path),conf);
+    
+    if (fs.exists(diffpath)) {
+      FileStatus[] ls = fs.listStatus(diffpath);
+    for (FileStatus file : ls) {
+    	  System.out.println(file.getPath().getName()+" "+file.getLen());
+	if (file.getPath().getName().startsWith("part-r-00000")) {
+	  FSDataInputStream diffin = fs.open(file.getPath());
+	  BufferedReader d = new BufferedReader(new InputStreamReader(diffin));
+	  String diffcontent = d.readLine();
+	  diffnum = Double.parseDouble(diffcontent);
+	  d.close();
+	}
+      }
+    }
+    
+    fs.close();
+    return diffnum;
+  }
+
+  static void deleteDirectory(String path) throws Exception {
+    Path todelete = new Path(path);
+    Configuration conf = new Configuration();
+    FileSystem fs = FileSystem.get(URI.create(path),conf);
+    
+    if (fs.exists(todelete)) 
+      fs.delete(todelete, true);
+      
+    fs.close();
+  }
+  
 
 
 
