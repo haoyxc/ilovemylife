@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public class DiffReducer extends Reducer<Text,Text,IntWritable,DoubleWritable>{
 
-
+	//emit the largest difference in ranks for a particular node
 	public void reduce(Text key, Iterable<Text> rankTexts, Context context) throws IOException, InterruptedException 
 	{
 		HashMap<String,Double> ranks0 = new HashMap<String,Double>();
@@ -31,7 +31,7 @@ public class DiffReducer extends Reducer<Text,Text,IntWritable,DoubleWritable>{
 		
 		ArrayList<Double> diffs = new ArrayList<Double>();
 		for (String node : ranks0.keySet()){
-			if (ranks1.containsKey(node)) {
+			if (ranks1.containsKey(node)) { //If this node is already contained within ranks1
 				diffs.add(Math.abs( ranks0.get(node)-ranks1.get(node) ));
 				ranks1.remove(node);
 			}
@@ -45,7 +45,7 @@ public class DiffReducer extends Reducer<Text,Text,IntWritable,DoubleWritable>{
 		
 		Collections.sort(diffs);
 		
-		context.write(new IntWritable(1), new DoubleWritable(diffs.get(diffs.size()-1)));//emit largest diff for this node
+		context.write(new IntWritable(1), new DoubleWritable(diffs.get(diffs.size()-1)));
 		
 	}
 }
