@@ -7,6 +7,7 @@ friends.init(function(errF, dataF){})
 
 let output  = '';
 
+//Writes out the output file that will be read into the MapReduce
     users.scanKeys(function(err, data){
         if(err){
             console.log("Error", err);
