@@ -6,6 +6,7 @@ const postCommentsdb = require("../models/postComments");
 const postLikesdb = require("../models/postLikes");
 const userPicsdb = require("../models/userPics");
 const router = express.Router();
+const chatdb = require("../models/chat");
 const friendsdb = require("../models/friend");
 const getRecs = require("../getRecs");
 const friendVis = require("../models/friendVis")
@@ -54,7 +55,13 @@ router.post("/respondToReq", friendsdb.respondToReq);
 //misc functionality
 router.get("/searchUsers/:input", userdb.userSearchSuggestions);
 router.get("/friendReqSent", friendsdb.hasSentFriendReq);
+
+
+//chat
+router.get("/getChat", chatdb.getChat);
+
 router.post("/removeFriend", friendsdb.removeFriend);
 router.get("/friendReqs", friendsdb.getFriendRequests);
 router.get("/configHome", userdb.configHome);
+
 module.exports = router;

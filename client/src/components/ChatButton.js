@@ -4,43 +4,36 @@ import { Redirect } from "react-router";
 import { BASEURL } from "../constants";
 axios.defaults.withCredentials = true;
 
-export default class VisualizerButton extends Component {
-
+export default class ChatButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      success: false
-      // redirect: false
+      redirect: false
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick(e) {
-    axios.post(`${BASEURL}/logout`).then(resp => {
-      if (!resp.data.error || resp.data.redirect) {
-        this.setState({ success: true });
-      } else {
-        alert(resp.data.error);
-      }
-    });
+    this.setState({ redirect: true });
   }
+
   render() {
-    if (this.state.success) {
-      return <Redirect to="/" />;
+    if (this.state.redirect) {
+      return <Redirect to="/chat" />;
     }
     return (
       <div>
-        <p style={visualBtn} className="visualBtn" onClick={this.handleClick}>
-          Logout
-        </p>
+        <button style={chatBtn} className="chatBtn" onClick={this.handleClick}>
+          Enter Chatroom
+        </button>
       </div>
     );
   }
 }
-const visualBtn = {
+const chatBtn = {
   margin: "20px",
   borderRadius: "8px",
   color: "white",
   backgroundColor: "#c7e0de",
   padding: "10px"
 };
-
