@@ -8,10 +8,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-/* writes ordered (best to worst) recommendations: node recommendation1,recommendation2...
- * Receives (node, rec1,value1,rec2,value2...) -- recommendation scores
- * and (node EXISTING;node2) -- existing nodes to ignore
- */
+
 public class FinishReducer extends Reducer<Text,Text,Text,Text> 
 {
 	//Ranking object that contains node name and rankvalue
