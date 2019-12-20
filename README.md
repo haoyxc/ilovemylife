@@ -135,3 +135,11 @@ npm run dev
 ```
 
 to run the server and client concurrently.
+
+Run getMRData.js to retrieve data for the Map Reduce. Place this output file in a folder called 'in'. 
+For the Adsoprtion Algorithm, run: 
+
+```
+hadoop jar HW3.jar edu.upenn.nets212.hw3.RecommendationDriver composite in out interm1 interm2 diffDir 3 0.1
+```
+
