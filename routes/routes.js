@@ -9,6 +9,7 @@ const router = express.Router();
 const chatdb = require("../models/chat");
 const friendsdb = require("../models/friend");
 const getRecs = require("../getRecs");
+const friendVis = require("../models/friendVis")
 
 //MIDDLEWARE
 // router.use(userdb.manageSession);

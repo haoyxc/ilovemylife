@@ -1,0 +1,24 @@
+woodyupenn.edu:chaoupenn
+woodyupenn.edu:mtuupenn
+jleeupenn:mtuupenn
+jleeupenn:chaoupenn
+swapsheth.com:chaoupenn
+chaoupenn:mtuupenn
+chaoupenn:awuupenn.edu
+chaoupenn:woodyupenn.edu
+chaoupenn:swapsheth.com
+chaoupenn:jleeupenn
+mtuupenn:chaoupenn
+mtuupenn:jleeupenn
+mtuupenn:awuupenn.edu
+mtuupenn:woodyupenn.edu
+awuupenn.edu:chaoupenn
+awuupenn.edu:mtuupenn
+woodyupenn.edu:toys,andy,buzz,Penn
+jleeupenn:nets,cis,chicken,pennseas
+joshchen.com:mse,wharton,not cis,mse
+swapsheth.com:cis,nets,cis
+chaoupenn:cis,chicken,penn
+mtuupenn:cis,nets,penn
+mhua.com:chicken,bio,pennseas
+awuupenn.edu:dogs,cats,mice,Penn

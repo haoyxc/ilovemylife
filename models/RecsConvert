@@ -1,0 +1,30 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
+public class RecsConvert{
+
+    private String outputFile;
+	private FileWriter f;
+	private BufferedWriter out;
+	
+	public HadoopConvert(String output) throws IOException {
+		outputFile = output;
+		f = new FileWriter(outputFile,true);
+		out = new BufferedWriter(f);
+	}
+
+    public static void main(String[] args) throws IOException
+	{
+		HadoopConvert hc = new HadoopConvert("/ilovemylife/rec_in");
+		hc.getAllInterestsAffiliations();
+		hc.getAllFriendships();
+		hc.close();
+	}
+	
+	public void close() throws IOException
+	{
+		out.close();
+	}
+}
